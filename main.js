@@ -175,10 +175,10 @@ You Venus,
 I Adonis`
   },
   {
-    id: 'golden-two-mirrored',
-    title: 'Golden-Two-Mirrored',
-    folder: 'Golden-Two-Mirrored',
-    description: 'Oil on canvas exploring duality and reflection in golden tones.',
+    id: 'gold',
+    title: 'Gold',
+    folder: 'Gold',
+    description: 'Oil on canvas exploring golden tones and the mythology of Persephone and seasonal cycles.',
     hasPoem: true,
     poem: `نام پرهیز
 طلا چهره،
@@ -190,6 +190,62 @@ The umber weight
 The gold of you
 The light of me
 Both unnamed`
+  },
+  {
+    id: 'desert',
+    title: 'Desert',
+    folder: 'Desert',
+    description: 'Oil on canvas exploring vastness and journey through desert imagery.',
+    hasPoem: true,
+    poem: `و ما گمگشتگان بیایبانیم
+به نعره به خنده در می نوردیم
+و مقصد به اصل و وصل
+و شنیدی سرود ما
+مسطور به سکوت شبان
+
+اینجا انجاست
+که آب ز خاک به رنگ آینه زند بیرون
+اینجا انجاست 
+که بازتاب نفس نمی شود پیدا
+اینجا آنجاست که جز آه شب نیست هیچ نوا
+اینجا آنجاست
+که تنها لا یتناهی، هست تعداد نهایت ها
+
+و ما سرگردانان شبیم
+قدم ها 
+گاه سست
+گاه رمین
+هل داده به شنها
+به نعره به خنده
+گام به گام
+به شن به شن
+به شب
+به شب
+بیابندگان روح این صحرا
+
+شنیدی سرود جنون ما
+ما ملعبه ی ستاره گانیم و رمل و اسطرلاب
+شگون به شگون
+و رمز به رمز
+مسحور خیال و مسطور به غبار 
+و به جوی جنون که در ماست روان
+جوییده ایم ماسه به ماسه،
+آینه به آینه.
+به استسقا
+
+دل داده ایم به جام و به داد و به باده
+سر به ستاره کشیدگان، ما مجانین بیابان
+می بینیم رنگ گیاه به کور رنگ خیال
+می بوییم به آهنگ عطش‌‌‌ عطر آبی آب
+و به جنونی که بر ما بود روا
+باید که بیابیم کیمیای بیابان`
+  },
+  {
+    id: 'pan',
+    title: 'Pan',
+    folder: 'Pan',
+    description: 'Oil on canvas exploring the wild and untamed nature through the mythology of Pan.',
+    hasPoem: false
   },
   {
     id: 'one',
@@ -258,8 +314,8 @@ Left
   },
   {
     id: 'veils-unveiled',
-    title: 'VeilsUnveiled',
-    folder: 'VeilsUnveiled',
+    title: 'Veils Unveiled',
+    folder: 'Veils Unveiled',
     description: 'Oil on canvas exploring revelation and the unveiling of truth.',
     hasPoem: true,
     poem: `Veils Unveiled
@@ -496,55 +552,6 @@ Love does not come for free
 But When its here
 Its free to hold me dearly
 Its free to hold you dearly`
-  },
-  {
-    id: 'wanderers-of-desert',
-    title: 'WanderersOfDesert',
-    folder: 'WanderersOfDesert',
-    description: 'Oil on canvas exploring journey and vastness through desert imagery.',
-    hasPoem: true,
-    poem: `و ما گمگشتگان بیایبانیم
-به نعره به خنده در می نوردیم
-و مقصد به اصل و وصل
-و شنیدی سرود ما
-مسطور به سکوت شبان
-
-اینجا انجاست
-که آب ز خاک به رنگ آینه زند بیرون
-اینجا انجاست 
-که بازتاب نفس نمی شود پیدا
-اینجا آنجاست که جز آه شب نیست هیچ نوا
-اینجا آنجاست
-که تنها لا یتناهی، هست تعداد نهایت ها
-
-و ما سرگردانان شبیم
-قدم ها 
-گاه سست
-گاه رمین
-هل داده به شنها
-به نعره به خنده
-گام به گام
-به شن به شن
-به شب
-به شب
-بیابندگان روح این صحرا
-
-شنیدی سرود جنون ما
-ما ملعبه ی ستاره گانیم و رمل و اسطرلاب
-شگون به شگون
-و رمز به رمز
-مسحور خیال و مسطور به غبار 
-و به جوی جنون که در ماست روان
-جوییده ایم ماسه به ماسه،
-آینه به آینه.
-به استسقا
-
-دل داده ایم به جام و به داد و به باده
-سر به ستاره کشیدگان، ما مجانین بیابان
-می بینیم رنگ گیاه به کور رنگ خیال
-می بوییم به آهنگ عطش‌‌‌ عطر آبی آب
-و به جنونی که بر ما بود روا
-باید که بیابیم کیمیای بیابان`
   }
 ];
 
