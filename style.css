@@ -1,0 +1,472 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+  --color-gold: #D4AF37;
+  --color-silver: #C0C0C0;
+  --color-gold-light: #E6D4A3;
+  --color-silver-light: #E8E8E8;
+  --color-blue: #4A90E2;
+  --color-bg: #0a0a0a;
+  --color-bg-glass: rgba(30, 30, 40, 0.55);
+  --color-bg-glass-strong: rgba(30, 30, 40, 0.85);
+  --color-white: #fff;
+  --color-muted: #e0e0e0;
+  --color-border: rgba(255,255,255,0.13);
+  --font-primary: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-poetry: 'Crimson Text', serif;
+  --font-elegant: 'Cormorant Garamond', serif;
+  --radius: 18px;
+  --shadow: 0 8px 40px #000a;
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+}
+
+.philosophical-background {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: radial-gradient(circle at 20% 80%, var(--color-gold) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, var(--color-silver) 0%, transparent 60%);
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cloud-painting-canvas {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.branches-layer {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.2rem 3rem 1.2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-container {
+  margin: 0 auto 1.5rem auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  color: var(--color-gold);
+  margin-bottom: 0.2em;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-family: var(--font-elegant);
+  font-size: 1.3rem;
+  color: var(--color-silver);
+  font-style: italic;
+  margin-bottom: 0.5em;
+  font-weight: 300;
+}
+
+.section {
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  text-align: center;
+  font-weight: 400;
+}
+
+.statement-text, .content-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+  background: var(--color-bg-glass);
+  border-radius: var(--radius);
+  padding: 1.5em 1.8em;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-elegant);
+}
+
+.content-text ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.content-text li {
+  margin-bottom: 0.5em;
+}
+
+.contact-info {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+  background: var(--color-bg-glass);
+  border-radius: var(--radius);
+  padding: 1.5em 1.8em;
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-elegant);
+}
+
+.contact-info p {
+  margin-bottom: 0.8em;
+}
+
+/* ===== ATELIER SECTION ===== */
+.atelier-section {
+  margin: 4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.atelier-item {
+  background: var(--color-bg-glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.atelier-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atelier-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px #000c;
+  border-color: var(--color-gold);
+}
+
+.atelier-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.atelier-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter var(--transition), transform var(--transition);
+}
+
+.atelier-item:hover .atelier-image img {
+  filter: brightness(1.05) contrast(1.2);
+  transform: scale(1.02);
+}
+
+.atelier-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5em;
+  font-weight: 400;
+}
+
+.atelier-description {
+  color: var(--color-muted);
+  font-size: 1rem;
+  font-family: var(--font-elegant);
+  line-height: 1.6;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.2rem;
+  margin: 2.5rem 0;
+}
+
+.artwork-item {
+  background: var(--color-bg-glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid var(--color-border);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+.artwork-item:hover {
+  box-shadow: 0 12px 48px #000c;
+  border-color: var(--color-gold);
+  transform: translateY(-4px) scale(1.012);
+}
+
+.artwork-image {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  margin-bottom: 1.1rem;
+  overflow: hidden;
+  background: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.artwork-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.93) contrast(1.08);
+  transition: filter var(--transition), transform var(--transition);
+}
+.artwork-item:hover .artwork-image img {
+  filter: brightness(1.01) contrast(1.18);
+  transform: scale(1.03);
+}
+
+.artwork-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  margin-bottom: 0.5em;
+  font-weight: 400;
+}
+.artwork-description {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.1em;
+  font-family: var(--font-elegant);
+}
+
+.read-poem-btn {
+  background: var(--color-bg-glass-strong);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5em 1.2em;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  box-shadow: 0 4px 24px #0006;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  backdrop-filter: blur(12px);
+  margin-top: 0.7em;
+}
+.read-poem-btn:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+/* ===== FULL SIZE PAINTING MODAL ===== */
+.painting-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(10,10,20,0.95);
+  backdrop-filter: blur(16px);
+  align-items: center;
+  justify-content: center;
+}
+.painting-modal.active { display: flex; }
+
+.painting-modal-content {
+  background: var(--color-bg-glass-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+
+.painting-modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.painting-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  margin: 1rem 0 0.5rem 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.painting-modal-description {
+  color: var(--color-muted);
+  font-size: 1rem;
+  text-align: center;
+  font-family: var(--font-elegant);
+  margin-bottom: 1rem;
+}
+
+/* ===== POEM MODAL ===== */
+.glass-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(10,10,20,0.82);
+  backdrop-filter: blur(16px);
+  align-items: center;
+  justify-content: center;
+}
+.glass-modal.active { display: flex; }
+
+.modal-content {
+  background: var(--color-bg-glass-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 600px;
+  width: 95vw;
+  max-height: 80vh;
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.8rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+  z-index: 10;
+}
+.close-btn:hover { opacity: 1; }
+
+#poemModalContent {
+  font-family: var(--font-poetry);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+  white-space: pre-line;
+  margin-top: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  max-height: calc(80vh - 4rem);
+}
+
+#boundaryGlow {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(212,175,55,0.08) 0%, transparent 200px);
+}
+
+@media (max-width: 900px) {
+  .container { padding: 1.2rem 0.5rem 2rem 0.5rem; }
+  .portfolio-grid, .atelier-grid { gap: 1.2rem; }
+  .modal-content, .painting-modal-content { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
+  .statement-text, .content-text, .contact-info { padding: 1.2em 1.2em; }
+}
+
+@media (max-width: 600px) {
+  .title { font-size: 1.7rem; }
+  .subtitle { font-size: 1rem; }
+  .statement-text, .content-text, .contact-info { font-size: 0.98rem; padding: 0.7em 0.5em; }
+  .section-title { font-size: 1.2rem; }
+  .portfolio-grid, .atelier-grid { grid-template-columns: 1fr; }
+  .artwork-image, .atelier-image { height: 160px; }
+  .modal-content, .painting-modal-content { max-width: 98vw; }
+  #poemModalContent { max-height: calc(80vh - 3rem); }
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, var(--color-gold) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+  transition: transform 0.1s ease-out;
+  mix-blend-mode: screen;
+} 
