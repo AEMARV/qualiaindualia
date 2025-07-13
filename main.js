@@ -71,97 +71,90 @@
   setInterval(drawBranches, 12000);
 })();
 
-// ===== PORTFOLIO GRID & POEM MODAL =====
+// Painting data with actual folder structure
 const paintings = [
   {
-    title: 'Venus',
-    image: 'paintings/Venus/Venus.jpg',
-    description: 'Oil on canvas - The feminine figure emerges through cloud painting technique, exploring beauty, desire, and the subconscious.',
-    poem: `Unchained
-
-And why resist the sensation
-The motion
-The revolution
-You
-Laying in satin hair
-And Gold meet the Silver
-Smile, honey sweet
-Voice, a perfect symphony
-Oh The guarded deity within
-The moment is here
-I am here
-You there
-I can be free, you can be free
-...
-Venus, Desire free
-Be free
-Love does not come for free
-But When its here
-Its free to hold me dearly
-Its free to hold you dearly`
-  },
-  {
+    id: 'blue',
     title: 'Blue',
-    image: 'paintings/Blue/Blue.jpg',
-    description: 'Oil on canvas - Mythic blue, Venus and Adonis, rebirth and memory.',
-    poem: `And here I am, Venus,
-Once Loved by you
-Judged by Zeus
-Rejected by Hades
-I am Adonis
-...
-For Deities we are
-You Venus,
-I Adonis`
+    folder: 'Blue',
+    description: 'Oil on canvas exploring the depths of blue and the mythology of Venus and Adonis.',
+    hasPoem: true
   },
   {
-    title: 'Two In Mirror And Both In A Mirror',
-    image: 'paintings/Golden-Two-Mirrored/TwoInMirrorAndBothInAMirror.jpg',
-    description: 'Oil on canvas - Infinite reflection and duality, exploring the concept of consciousness and the self through mirrored imagery and recursive perception.',
-    poem: `نام پرهیز
-طلا چهره،
-۲ در آینه و هر دو در آینه -
-The golden room
-The golden mask
-The umber weight
-The gold of you
-The light of me
-Both unnamed`
+    id: 'golden-two-mirrored',
+    title: 'Golden-Two-Mirrored',
+    folder: 'Golden-Two-Mirrored',
+    description: 'Oil on canvas exploring duality and reflection in golden tones.',
+    hasPoem: true
   },
   {
-    title: 'Wanderers of Desert',
-    image: 'paintings/WanderersOfDesert/WanderersofDesert.jpg',
-    description: 'Oil on canvas - Figures traversing vast emptiness, exploring themes of journey, isolation, and the search for meaning in barren landscapes.',
-    poem: `و ما گمگشتگان بیایبانیم
-به نعره به خنده در می نوردیم
-...
-باید که بیابیم کیمیای بیابان`
+    id: 'one',
+    title: 'One',
+    folder: 'One',
+    description: 'Oil on canvas exploring unity and singularity.',
+    hasPoem: true
   },
   {
+    id: 'peacock',
     title: 'Peacock',
-    image: 'paintings/Peacock/Peacock.jpg',
-    description: 'Oil on canvas - Study in beauty and natural splendor, exploring themes of display, attraction, and the inherent beauty of the natural world.',
-    poem: `In the garden of splendor
-Where colors dance and fade
-The peacock spreads its glory
-In nature's grand parade
-
-Each feather tells a story
-Of beauty's endless quest
-In this moment of wonder
-We find our hearts at rest`
+    folder: 'Peacock',
+    description: 'Oil on canvas celebrating natural beauty and splendor.',
+    hasPoem: false
+  },
+  {
+    id: 'sealed',
+    title: 'Sealed',
+    folder: 'Sealed',
+    description: 'Oil on canvas exploring containment and mystery.',
+    hasPoem: false
+  },
+  {
+    id: 'uno-eye',
+    title: 'Uno-Eye',
+    folder: 'Uno-Eye',
+    description: 'Oil on canvas exploring vision and perception through multiple stages.',
+    hasPoem: false
+  },
+  {
+    id: 'veils-unveiled',
+    title: 'VeilsUnveiled',
+    folder: 'VeilsUnveiled',
+    description: 'Oil on canvas exploring revelation and the unveiling of truth.',
+    hasPoem: true
+  },
+  {
+    id: 'venus',
+    title: 'Venus',
+    folder: 'Venus',
+    description: 'Oil on canvas celebrating the feminine divine and beauty.',
+    hasPoem: true
+  },
+  {
+    id: 'wanderers-of-desert',
+    title: 'WanderersOfDesert',
+    folder: 'WanderersOfDesert',
+    description: 'Oil on canvas exploring journey and vastness through desert imagery.',
+    hasPoem: true
   }
 ];
 
+// ===== PORTFOLIO GRID CREATION =====
 const grid = document.getElementById('portfolioGrid');
 paintings.forEach(p => {
   const item = document.createElement('div');
   item.className = 'artwork-item';
+  
+  // Build the card HTML with conditional poem button
+  let poemButtonHtml = '';
+  if (p.hasPoem) {
+    poemButtonHtml = '<button class="read-poem-btn">Read Poem</button>';
+  }
+  
   item.innerHTML = `
-    <div class="artwork-image"><img src="${p.image}" alt="${p.title}" loading="lazy"></div>
+    <div class="artwork-image"><img src="paintings/${p.folder}/stage-final.jpg" alt="${p.title}" loading="lazy"></div>
     <h3 class="artwork-title">${p.title}</h3>
     <p class="artwork-description">${p.description}</p>
-    <button class="read-poem-btn" onclick="showPoemModal(\`${p.poem.replace(/`/g, '\\`')}\`)">Read Poem</button>
+    ${poemButtonHtml}
   `;
   
   // Add click handler for full-size painting view to the entire card
@@ -172,8 +165,33 @@ paintings.forEach(p => {
     }
   });
   
+  // Add poem button click handler if it exists
+  const poemBtn = item.querySelector('.read-poem-btn');
+  if (poemBtn) {
+    poemBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      loadAndShowPoem(p);
+    });
+  }
+  
   grid.appendChild(item);
 });
+
+// Function to dynamically load and show poem
+async function loadAndShowPoem(painting) {
+  try {
+    const response = await fetch(`paintings/${painting.folder}/poem.txt`);
+    if (!response.ok) {
+      throw new Error('Poem not found');
+    }
+    const poemText = await response.text();
+    showPoemModal(poemText);
+  } catch (error) {
+    console.error('Error loading poem:', error);
+    // Fallback to empty poem if loading fails
+    showPoemModal('Poem not available.');
+  }
+}
 
 // ===== ATELIER SECTION =====
 const atelierImages = [
@@ -241,7 +259,7 @@ document.getElementById('poemModal').onclick = function(e) {
 
 // ===== FULL SIZE PAINTING MODAL =====
 window.showPaintingModal = function(painting) {
-  document.getElementById('paintingModalImage').src = painting.image;
+  document.getElementById('paintingModalImage').src = `paintings/${painting.folder}/stage-final.jpg`;
   document.getElementById('paintingModalImage').alt = painting.title;
   document.getElementById('paintingModalTitle').textContent = painting.title;
   document.getElementById('paintingModalDescription').textContent = painting.description;

@@ -68,6 +68,93 @@ body {
   z-index: 10;
 }
 
+/* ===== BANNER SECTION ===== */
+.banner-section {
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.banner-image-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition);
+}
+
+.banner-image:hover {
+  transform: scale(1.02);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.3) 30%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
+}
+
+.banner-overlay .logo-container {
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.banner-overlay .title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.3);
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+}
+
+.banner-overlay .subtitle {
+  font-size: 1.2rem;
+  color: var(--color-silver);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(192, 192, 192, 0.2);
+  margin-bottom: 0.25rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+}
+
 .header {
   text-align: center;
   margin-bottom: 3rem;
@@ -442,12 +529,37 @@ body {
 
 @media (max-width: 900px) {
   .container { padding: 1.2rem 0.5rem 2rem 0.5rem; }
+  .banner-image-container { height: 50vh; min-height: 350px; }
+  .banner-overlay .title { 
+    font-size: 2.8rem; 
+    padding: 0.4rem 1.2rem;
+  }
+  .banner-overlay .subtitle { 
+    font-size: 1.1rem; 
+    padding: 0.25rem 0.8rem;
+  }
+  .banner-overlay .logo-container {
+    padding: 0.8rem;
+  }
   .portfolio-grid, .atelier-grid { gap: 1.2rem; }
   .modal-content, .painting-modal-content { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
   .statement-text, .content-text, .contact-info { padding: 1.2em 1.2em; }
 }
 
 @media (max-width: 600px) {
+  .banner-image-container { height: 40vh; min-height: 300px; }
+  .banner-overlay .title { 
+    font-size: 2.2rem; 
+    padding: 0.3rem 1rem;
+  }
+  .banner-overlay .subtitle { 
+    font-size: 1rem; 
+    padding: 0.2rem 0.7rem;
+  }
+  .banner-overlay .logo-container {
+    padding: 0.6rem;
+  }
+  .banner-overlay { padding: 1.5rem; }
   .title { font-size: 1.7rem; }
   .subtitle { font-size: 1rem; }
   .statement-text, .content-text, .contact-info { font-size: 0.98rem; padding: 0.7em 0.5em; }
