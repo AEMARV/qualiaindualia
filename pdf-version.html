@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amir Emad Marvasti - Artist-in-Action Application (PDF Version)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* PDF/Print Optimized Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: white;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px 0;
+      border-bottom: 2px solid #D4AF37;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+    }
+
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3em;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .section {
+      margin-bottom: 50px;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8em;
+      color: #D4AF37;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #C0C0C0;
+      padding-bottom: 10px;
+    }
+
+    .content-text {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .content-text p {
+      margin-bottom: 15px;
+    }
+
+    .content-text ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .content-text li {
+      margin-bottom: 8px;
+    }
+
+    .contact-info {
+      background: #f9f9f9;
+      padding: 20px;
+      border-left: 4px solid #D4AF37;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    /* Painting Display Styles */
+    .painting-section {
+      page-break-inside: avoid;
+      margin-bottom: 60px;
+    }
+
+    .painting-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .painting-image {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .painting-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5em;
+      color: #D4AF37;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .painting-description {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #555;
+    }
+
+    .poem-content {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1em;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fafafa;
+      border-left: 3px solid #C0C0C0;
+    }
+
+    /* Atelier Section */
+    .atelier-section {
+      page-break-inside: avoid;
+      margin-bottom: 50px;
+    }
+
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .atelier-item {
+      text-align: center;
+    }
+
+    .atelier-image {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+
+    .atelier-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2em;
+      color: #666;
+    }
+
+    /* Page Break Controls */
+    .page-break {
+      page-break-before: always;
+    }
+
+    .no-break {
+      page-break-inside: avoid;
+    }
+
+    /* Print Specific Styles */
+    @media print {
+      body {
+        font-size: 12pt;
+        line-height: 1.4;
+      }
+
+      .section {
+        margin-bottom: 30pt;
+      }
+
+      .painting-section {
+        margin-bottom: 40pt;
+      }
+
+      .painting-image {
+        max-height: 500pt;
+        width: auto;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      .no-break {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .title {
+        font-size: 2em;
+      }
+
+      .section-title {
+        font-size: 1.5em;
+      }
+
+      .painting-title {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <svg class="logo" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="85" fill="none" stroke="#D4AF37" stroke-width="2"/>
+      <circle cx="100" cy="100" r="65" fill="none" stroke="#C0C0C0" stroke-width="2"/>
+      <circle cx="60" cy="100" r="18" fill="#D4AF37"/>
+      <circle cx="140" cy="100" r="18" fill="#C0C0C0"/>
+    </svg>
+    <h1 class="title">Amir Emad Marvasti</h1>
+    <p class="subtitle">Artist-in-Action Application</p>
+    <p class="subtitle">Art and History Museums of Maitland</p>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Artist Statement</h2>
+    <div class="content-text">
+      I explore the intersection of consciousness, randomness, and meaning through oil painting. My work emerges from the dialogue between the rational and the a-rational, where oil on canvas, unknown by the artist, paints a picture, and I follow the trail of stories with no restriction. Each painting is accompanied by poetry that emerges from the same subconscious space, creating a complete artistic experience that bridges scientific rigor with artistic expression.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Portfolio - Recent Works</h2>
+    
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Blue/Blue.jpg" alt="Blue" class="painting-image">
+        <h3 class="painting-title">Blue</h3>
+        <div class="painting-description">
+          Oil on canvas exploring the depths of consciousness through the feminine figure. The work emerges from cloud painting technique, where random patterns guide the artistic process.
+        </div>
+        <div class="poem-content">
+          In the garden of Venus, where roses bloom<br>
+          And the air is thick with the scent of love,<br>
+          There walks a figure, wrapped in blue,<br>
+          Her eyes reflecting the sky above.<br><br>
+          
+          She moves like water, fluid and free,<br>
+          Her presence a mystery to behold,<br>
+          In her hands she carries the key<br>
+          To stories that have never been told.<br><br>
+          
+          Blue is the color of her soul,<br>
+          Deep as the ocean, bright as the sky,<br>
+          In her embrace, we become whole,<br>
+          As she teaches us how to fly.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Golden-Two-Mirrored/TwoInMirrorAndBothInAMirror.jpg" alt="Two In Mirror And Both In A Mirror" class="painting-image">
+        <h3 class="painting-title">Two In Mirror And Both In A Mirror</h3>
+        <div class="painting-description">
+          An exploration of duality and infinite reflection. The work examines the nature of consciousness through mirrored forms and golden light.
+        </div>
+        <div class="poem-content">
+          Two figures stand before the glass,<br>
+          Each reflecting the other's face,<br>
+          In infinite regress they pass,<br>
+          Through time and space.<br><br>
+          
+          Golden light surrounds them both,<br>
+          As they contemplate their shared existence,<br>
+          In this moment, they take an oath<br>
+          To honor their persistence.<br><br>
+          
+          Mirror within mirror, soul within soul,<br>
+          They dance the dance of duality,<br>
+          Each playing their essential role<br>
+          In the grand symphony.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/One/stage-final.jpg" alt="One" class="painting-image">
+        <h3 class="painting-title">One</h3>
+        <div class="painting-description">
+          A meditation on unity and singularity. The work explores the concept of oneness through abstract forms and organic shapes.
+        </div>
+        <div class="poem-content">
+          In the beginning, there was One,<br>
+          A single point of light,<br>
+          Before the dance had begun,<br>
+          Before the day and night.<br><br>
+          
+          From this singularity,<br>
+          All things began to flow,<br>
+          Creating multiplicity<br>
+          From the seed below.<br><br>
+          
+          Yet in each thing, the One remains,<br>
+          A spark of the divine,<br>
+          Through joy and through our pains,<br>
+          The One continues to shine.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Peacock/Peacock.jpg" alt="Peacock" class="painting-image">
+        <h3 class="painting-title">Peacock</h3>
+        <div class="painting-description">
+          A celebration of natural beauty and splendor. The peacock's magnificent display becomes a metaphor for artistic expression and the beauty of existence.
+        </div>
+        <div class="poem-content">
+          Behold the peacock's splendid tail,<br>
+          A fan of iridescent light,<br>
+          Each feather tells a different tale,<br>
+          Of beauty shining bright.<br><br>
+          
+          In his display, we see reflected<br>
+          The glory of creation's art,<br>
+          Each color carefully selected<br>
+          To play its perfect part.<br><br>
+          
+          So too the artist spreads his wings,<br>
+          To show the world his inner light,<br>
+          And in the joy that beauty brings,<br>
+          We find our own delight.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Sealed/stage-final.jpg" alt="Sealed" class="painting-image">
+        <h3 class="painting-title">Sealed</h3>
+        <div class="painting-description">
+          An exploration of boundaries and containment. The work examines what lies beneath the surface and the mysteries that remain hidden.
+        </div>
+        <div class="poem-content">
+          Behind the seal, a mystery lies,<br>
+          A secret waiting to be told,<br>
+          Hidden from our prying eyes,<br>
+          A story yet to unfold.<br><br>
+          
+          What treasures might be hidden there?<br>
+          What wisdom from the ancient past?<br>
+          What dreams and hopes beyond compare?<br>
+          What memories that always last?<br><br>
+          
+          The seal protects what must remain<br>
+          Until the time is right to see,<br>
+          When light will shine through every vein,<br>
+          And truth will set us free.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Uno-Eye/stage-final.jpg" alt="Uno Eye" class="painting-image">
+        <h3 class="painting-title">Uno Eye</h3>
+        <div class="painting-description">
+          A study of perception and vision. The single eye becomes a symbol of consciousness and the way we see and interpret the world.
+        </div>
+        <div class="poem-content">
+          One eye sees what others miss,<br>
+          The hidden patterns in the air,<br>
+          The subtle dance of light and bliss,<br>
+          The beauty everywhere.<br><br>
+          
+          Through this lens of consciousness,<br>
+          We view the world with clarity,<br>
+          Each moment filled with tenderness,<br>
+          Each sight a rarity.<br><br>
+          
+          The eye that sees with love and grace,<br>
+          Discovers wonders in the small,<br>
+          And finds in every time and place,<br>
+          The miracle of all.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/VeilsUnveiled/stage-final.jpg" alt="Veils Unveiled" class="painting-image">
+        <h3 class="painting-title">Veils Unveiled</h3>
+        <div class="painting-description">
+          An exploration of revelation and truth. The work examines the layers of perception and what lies beneath the surface of appearances.
+        </div>
+        <div class="poem-content">
+          Layer by layer, the veils fall away,<br>
+          Revealing truth beneath the guise,<br>
+          As light breaks through the dark of day,<br>
+          And opens up our eyes.<br><br>
+          
+          What was hidden now is clear,<br>
+          What was secret now is known,<br>
+          As we cast away our fear,<br>
+          And claim what is our own.<br><br>
+          
+          In the unveiling, we find grace,<br>
+          A beauty that was always there,<br>
+          Written in the lines of face,<br>
+          And floating in the air.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/Venus/Venus.jpg" alt="Venus" class="painting-image">
+        <h3 class="painting-title">Venus</h3>
+        <div class="painting-description">
+          A celebration of feminine beauty and grace. The work explores the archetype of Venus and the power of love and beauty in human experience.
+        </div>
+        <div class="poem-content">
+          Venus rises from the sea,<br>
+          Her beauty lighting up the sky,<br>
+          A vision of divinity,<br>
+          That makes the heart sigh.<br><br>
+          
+          In her presence, love awakens,<br>
+          And beauty flows like wine,<br>
+          As every heart that love forsakens,<br>
+          Finds its way back to the divine.<br><br>
+          
+          She teaches us that beauty's power<br>
+          Lies not in form alone,<br>
+          But in the grace of every hour,<br>
+          And love that makes us whole.
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-section no-break">
+      <div class="painting-container">
+        <img src="paintings/WanderersOfDesert/WanderersofDesert.jpg" alt="Wanderers of Desert" class="painting-image">
+        <h3 class="painting-title">Wanderers of Desert</h3>
+        <div class="painting-description">
+          A meditation on journey and discovery. The work explores the vastness of the desert and the human spirit's quest for meaning and connection.
+        </div>
+        <div class="poem-content">
+          Across the endless desert sand,<br>
+          The wanderers make their way,<br>
+          Guided by an unseen hand,<br>
+          Through night and through the day.<br><br>
+          
+          In the vastness, they find peace,<br>
+          In the silence, they hear truth,<br>
+          As their journey brings release<br>
+          From the burdens of their youth.<br><br>
+          
+          The desert teaches them to see<br>
+          The beauty in the barren land,<br>
+          And in their hearts, they come to be<br>
+          At one with what was planned.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="atelier-section">
+    <h2 class="section-title">Atelier Views</h2>
+    <div class="atelier-grid">
+      <div class="atelier-item">
+        <img src="Atellier/Comprehensive.jpg" alt="Atelier Comprehensive View" class="atelier-image">
+        <h3 class="atelier-title">Comprehensive View</h3>
+      </div>
+      <div class="atelier-item">
+        <img src="Atellier/theTinyTable.jpg" alt="The Tiny Table" class="atelier-image">
+        <h3 class="atelier-title">The Tiny Table</h3>
+      </div>
+      <div class="atelier-item">
+        <img src="Atellier/view2.jpg" alt="Atelier View 2" class="atelier-image">
+        <h3 class="atelier-title">Workspace View</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Studio Practice & Medium</h2>
+    <div class="content-text">
+      <p><strong>Medium:</strong> Oil on canvas</p>
+      <p><strong>Technique:</strong> Cloud painting - a unique methodology using random number generation as starting point. I plot numbers to create visual patterns, transfer them to canvas with oil paint, and allow subconscious imagery to emerge. This creates a "Self-Rorschach test" where the unknown artist within guides the process.</p>
+      <p><strong>Process:</strong> Each work begins with mathematical randomness, evolves through oil painting, and concludes with poetry that emerges from the same creative space. This creates a complete artistic cycle from algorithm to canvas to verse.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Brief Biography</h2>
+    <div class="content-text">
+      <p>Amir Emad Marvasti is an artist and researcher based in Orlando, FL. With a PhD in Computer Science from University of Central Florida (2014-2021) and research experience at Northwestern University's Machine and Hybrid Intelligence Lab (2021-2022), I bring a unique perspective to art that bridges scientific rigor with artistic expression.</p>
+      <p>My artistic practice as "Qualia in Dualia" explores consciousness, duality, and the intersection of technology and human experience. I have developed a distinctive cloud painting technique that uses random number generation to create visual patterns, allowing subconscious imagery to emerge through oil painting.</p>
+      <p>Currently, I am the founder of Geography of Opinions, a social platform for mapping public opinions, and continue to develop my oil painting practice with a focus on creating welcoming spaces for interdisciplinary dialogue.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Residency Objectives</h2>
+    <div class="content-text">
+      <p><strong>Primary Goal:</strong> To create a welcoming studio environment that serves as a bridge between the Maitland art community and the Art and History Museums, fostering interdisciplinary dialogue and collaboration.</p>
+      <p><strong>Project Focus:</strong> Continue developing my cloud painting technique while creating an inspiring studio space that welcomes guests from any discipline. The studio will feature ongoing works-in-progress, allowing visitors to witness the evolution from mathematical randomness to finished oil paintings.</p>
+      <p><strong>Community Integration:</strong> Connect local artists in the Maitland neighborhood with the museum's resources and programming. I will serve as a liaison, introducing artists to the museum's facilities and encouraging participation in museum events.</p>
+      <p><strong>Educational Component:</strong> Offer workshops on the intersection of technology and art, demonstrating how mathematical concepts can inform artistic practice. These workshops will be scheduled through the Art School Manager.</p>
+      <p><strong>Historical Mission Alignment:</strong> My experimental approach to art through cloud painting directly aligns with Jules André Smith's Research Studio spirit of exploration and innovation. The technique challenges traditional artistic boundaries while honoring the museum's commitment to experimental approaches.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Equipment & Materials</h2>
+    <div class="content-text">
+      <p><strong>Materials I Will Provide:</strong></p>
+      <ul>
+        <li>Oil paints (various colors and brands)</li>
+        <li>Canvas and canvas boards (various sizes)</li>
+        <li>Brushes and painting tools</li>
+        <li>Palette and palette knives</li>
+        <li>Solvents and mediums (Gamsol, linseed oil)</li>
+        <li>Sketchbooks and drawing materials</li>
+        <li>Computer for random number generation and pattern plotting</li>
+      </ul>
+      <p><strong>Materials I Will Need to Source:</strong></p>
+      <ul>
+        <li>Easels (if not provided by studio)</li>
+        <li>Storage containers for supplies</li>
+        <li>Additional lighting if needed</li>
+      </ul>
+      <p><strong>Hazardous Materials:</strong> I will be working with oil paints and solvents. I am experienced in proper handling and disposal of these materials and will maintain a safe studio environment following all safety protocols.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Proposed Open Studio Hours</h2>
+    <div class="content-text">
+      <p><strong>Proposed Schedule:</strong> Thursdays, 12:00 PM - 5:00 PM</p>
+      <p>This time slot allows for maximum visibility during museum hours while providing a consistent schedule for visitors. Thursday afternoons typically see good visitor traffic, and the 5-hour block allows for meaningful engagement with guests while maintaining productive studio time.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Contact Information</h2>
+    <div class="contact-info">
+      <p><strong>Name:</strong> Amir Emad Marvasti</p>
+      <p><strong>Mailing Address:</strong> 2502 Montana St, Orlando, FL</p>
+      <p><strong>Email:</strong> amir.emad90@gmail.com</p>
+      <p><strong>Phone:</strong> (407) 227-7492</p>
+      <p><strong>Website:</strong> qualiadualia.com</p>
+    </div>
+  </section>
+</body>
+</html> 

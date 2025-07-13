@@ -118,6 +118,7 @@ body {
   text-align: center;
   padding: 2rem;
   backdrop-filter: blur(3px);
+  min-height: 100%;
 }
 
 .banner-overlay .logo-container {
@@ -130,29 +131,151 @@ body {
 }
 
 .banner-overlay .title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--color-gold);
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.3);
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
+  font-size: 3.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 60px rgba(255, 255, 255, 0.2),
+    0 0 90px rgba(255, 255, 255, 0.1),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.8rem;
+  letter-spacing: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  font-family: var(--font-display);
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-overlay .title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: titleShine 4s ease-in-out infinite;
 }
 
 .banner-overlay .subtitle {
-  font-size: 1.2rem;
-  color: var(--color-silver);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(192, 192, 192, 0.2);
-  margin-bottom: 0.25rem;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1),
+    1px 1px 2px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.4rem;
   font-weight: 300;
-  letter-spacing: 1px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 0.3rem 1rem;
-  border-radius: 6px;
-  backdrop-filter: blur(5px);
+  letter-spacing: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: subtitleFloat 4s ease-in-out infinite;
+  font-family: var(--font-elegant);
+  font-style: italic;
+}
+
+@keyframes titleGlow {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.2),
+      0 0 40px rgba(255, 255, 255, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  100% {
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.3),
+      0 0 60px rgba(255, 255, 255, 0.15),
+      inset 0 0 30px rgba(255, 255, 255, 0.08);
+  }
+}
+
+@keyframes titleShine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes subtitleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ===== EXTERNAL LINKS SECTION ===== */
+.external-links-section {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.external-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.external-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-bg-glass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--color-white);
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.external-link:hover {
+  background: var(--color-bg-glass-strong);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+}
+
+.external-link-logo {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition);
+}
+
+.external-link:hover .external-link-logo {
+  transform: scale(1.1);
+}
+
+.external-link-text {
+  font-family: var(--font-primary);
+  font-weight: 500;
 }
 
 .header {
@@ -532,14 +655,27 @@ body {
   .banner-image-container { height: 50vh; min-height: 350px; }
   .banner-overlay .title { 
     font-size: 2.8rem; 
-    padding: 0.4rem 1.2rem;
+    padding: 0.8rem 1.5rem;
+    letter-spacing: 3px;
   }
   .banner-overlay .subtitle { 
     font-size: 1.1rem; 
-    padding: 0.25rem 0.8rem;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 1.5px;
   }
   .banner-overlay .logo-container {
     padding: 0.8rem;
+  }
+  .external-links-container {
+    gap: 1rem;
+  }
+  .external-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .external-link-logo {
+    width: 18px;
+    height: 18px;
   }
   .portfolio-grid, .atelier-grid { gap: 1.2rem; }
   .modal-content, .painting-modal-content { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
@@ -547,19 +683,43 @@ body {
 }
 
 @media (max-width: 600px) {
-  .banner-image-container { height: 40vh; min-height: 300px; }
+  .banner-image-container { 
+    height: 70vh; 
+    min-height: 500px; 
+  }
+  .banner-overlay { 
+    padding: 1rem; 
+    justify-content: center;
+  }
   .banner-overlay .title { 
-    font-size: 2.2rem; 
-    padding: 0.3rem 1rem;
+    font-size: 1.6rem; 
+    padding: 0.4rem 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
   }
   .banner-overlay .subtitle { 
-    font-size: 1rem; 
-    padding: 0.2rem 0.7rem;
+    font-size: 0.8rem; 
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
   }
   .banner-overlay .logo-container {
-    padding: 0.6rem;
+    padding: 0.3rem;
+    margin-bottom: 0.8rem;
   }
-  .banner-overlay { padding: 1.5rem; }
+  .external-links-container {
+    gap: 0.8rem;
+  }
+  .external-link {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  .external-link-logo {
+    width: 16px;
+    height: 16px;
+  }
   .title { font-size: 1.7rem; }
   .subtitle { font-size: 1rem; }
   .statement-text, .content-text, .contact-info { font-size: 0.98rem; padding: 0.7em 0.5em; }
@@ -568,6 +728,42 @@ body {
   .artwork-image, .atelier-image { height: 160px; }
   .modal-content, .painting-modal-content { max-width: 98vw; }
   #poemModalContent { max-height: calc(80vh - 3rem); }
+}
+
+@media (max-width: 400px) {
+  .banner-image-container { 
+    height: 80vh; 
+    min-height: 550px; 
+  }
+  .banner-overlay { 
+    padding: 0.6rem; 
+  }
+  .banner-overlay .title { 
+    font-size: 1.3rem; 
+    padding: 0.3rem 0.6rem;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.3rem;
+    line-height: 1.1;
+  }
+  .banner-overlay .subtitle { 
+    font-size: 0.7rem; 
+    padding: 0.15rem 0.5rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.15rem;
+    line-height: 1.2;
+  }
+  .banner-overlay .logo-container {
+    padding: 0.25rem;
+    margin-bottom: 0.6rem;
+  }
+  .external-link {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .external-link-logo {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .custom-cursor {

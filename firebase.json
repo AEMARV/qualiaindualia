@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "README.md",
+      "PDF_INSTRUCTIONS.md",
+      "generate-pdf.py",
+      "serve.py",
+      "simple_server.py"
+    ]
+  }
+} 
